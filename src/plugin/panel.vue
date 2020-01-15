@@ -15,24 +15,23 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: "test-panel",
+<script lang="ts">
+import { Component, Vue } from "vue-property-decorator";
 
-  data() {
-    return {
-      checkedNumber: ""
-    };
-  },
+@Component({
+  name: "test-panel"
+})
+export default class TestPanel extends Vue {
+  checkedNumber: string = "";
 
-  methods: {
-    clickThisNumber(event) {
+  private clickThisNumber(event: MouseEvent) {
+    if (event.currentTarget) {
       this.checkedNumber = this.checkedNumber.concat(
-        event.currentTarget.innerHTML
+        (event.currentTarget as HTMLElement).innerHTML
       );
     }
   }
-};
+}
 </script>
 
 <style>

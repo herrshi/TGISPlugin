@@ -1,12 +1,20 @@
 {
   "name": "tgisplugin",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "lib": "vue-cli-service build --dest lib --target lib --name maucash-model ./src/plugin/index.ts"
   },
+  "main": "lib/maucash-model.umd.min.js",
+  "typings": "types/index.d.ts",
+  "homepage": "https://github.com/herrshi/TGISPlugin",
+  "files": [
+    "lib/**/*",
+    "types/*"
+  ],
   "dependencies": {
     "core-js": "^3.4.4",
     "vue": "^2.6.10",
